@@ -19,4 +19,11 @@ public class CourseService {
         return course;
     }
 
+    public Course addcourse(Course course){
+
+          courseRepo.save(course);
+
+        return course;
+    }
+
 }
