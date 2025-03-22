@@ -20,10 +20,20 @@ public class CourseService {
     }
 
     public Course addcourse(Course course){
-
-          courseRepo.save(course);
-
+        courseRepo.save(course);
         return course;
+    }
+
+    public Course deleteCourse(int id){
+    List<Course>  courseList = courseRepo.findAll();
+    for(Course c:courseList){
+        if(c.getId() == id){
+
+           courseRepo.delete(c);
+        }
+    }
+    return null;
+
     }
 
 }

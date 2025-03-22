@@ -25,4 +25,17 @@ public class CourseController {
     public Course course(@RequestBody Course course){
        return  courseService.addcourse(course);
     }
+
+
+
+    @DeleteMapping("/course/{id}")
+    public Course deleteCourse(@PathVariable("id") int id){
+        return courseService.deleteCourse(id);
+    }
+
+
+
+
+
+
 }
