@@ -2,7 +2,9 @@ package com.example.courseapi.Controller;
 
 import com.example.courseapi.Entity.Course;
 import com.example.courseapi.Service.CourseService;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,12 +19,15 @@ public class CourseController {
     @GetMapping("/getAll")
     public List<Course> getAll(){
 
+
         List<Course> course = courseService.getAll();
         return course;
     }
 
     @PostMapping("/addCourse")
-    public Course course(@RequestBody Course course){
+    public Course course(@RequestBody Course course, HttpServletRequest httpServletRequest){
+        System.out.println(httpServletRequest.getSession().getId());
+
        return  courseService.addcourse(course);
     }
 
